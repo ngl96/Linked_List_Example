@@ -1,5 +1,4 @@
 // Nathanael Leyton
-// Rec12
 
 #include <cstdlib>
 #include <iostream>
@@ -52,7 +51,7 @@ public:
     List(const List& rhs);
     List& operator=(const List& rhs);
     
-    // Task 1:
+    //1:
     void push_back(int data) {
         Node* newNode = new Node(data);
         Node* oldPrior = trailer->prior;
@@ -74,7 +73,6 @@ public:
     int front() { return header->next->data; }
     int back() { return trailer->prior->data; }
     int size() const { return theSize; }
-    // Task 2:
     void push_front(int data) {
         Node* newNode = new Node(data);
         Node* oldNext = header->next;
@@ -93,7 +91,6 @@ public:
         --theSize;
         return front;
     }
-    // Task 3:
     void clear() {
         Node* ptr = header->next;
         while (ptr != trailer){
@@ -104,7 +101,6 @@ public:
         trailer->prior = header;
         theSize = 0;
     }
-    // Task 4:
     int& operator[](size_t index) {
         Node* cursor = header->next;
         int count = 0;
@@ -158,7 +154,6 @@ void printListInfo(List& myList) {
     << ", list: " << myList << endl;
 }
 
-// Task 8
 void doNothing(List aList) {
     cout << "In doNothing\n";
     printListInfo(aList);
@@ -167,7 +162,6 @@ void doNothing(List aList) {
 }
 
 int main() {
-    // Task 1
     cout << "\n------Task One------\n";
     List myList;
     cout << "Fill empty list with push_back: i*i for i from 0 to 9\n";
@@ -184,7 +178,6 @@ int main() {
     }
     cout << "===================\n";
     
-    // Task2
     cout << "\n------Task Two------\n";
     cout << "Fill empty list with push_front: i*i for i from 0 to 9\n";
     for (int i = 0; i < 10; ++i) {
@@ -200,7 +193,6 @@ int main() {
     }
     cout << "===================\n";
     
-    // Task3
     cout << "\n------Task Three------\n";
     cout << "Fill empty list with push_back: i*i for i from 0 to 9\n";
     for (int i = 0; i < 10; ++i) {
@@ -224,7 +216,6 @@ int main() {
     for (size_t i = 0; i < myList.size(); ++i) cout << myList[i] << ' ';
     cout << endl;
 
-    // Task 5
     cout << "\n------Task Five------\n";
     cout << "Fill empty list with push_back: i*i for i from 0 to 9\n";
     myList.clear();
@@ -240,7 +231,6 @@ int main() {
     cout << endl;
     cout << "WOW!!! (I thought it was cool.)\n";
 
-    // Task 6
     cout << "\n------Task Six------\n";
     cout << "Filling an empty list with insert at end: i*i for i from 0 to 9\n";
     myList.clear();
@@ -251,10 +241,8 @@ int main() {
     myList.clear();
     for (int i = 0; i < 10; ++i) myList.insert(myList.begin(), i*i);
     printListInfo(myList);
-    // ***Need test for insert other than begin/end***
     cout << "===================\n";
 
-    // Task 7
     cout << "\n------Task Seven------\n";
     cout << "Filling an empty list with insert at end: i*i for i from 0 to 9\n";
     myList.clear();
@@ -264,10 +252,8 @@ int main() {
         printListInfo(myList);
         myList.erase(myList.begin());
     }
-    // ***Need test for erase other than begin/end***
     cout << "===================\n";
 
-//    // Task 8
 //    cout << "\n------Task Eight------\n";
 //    cout << "Copy control\n";
 //    cout << "Filling an empty list with insert at end: i*i for i from 0 to 9\n";
